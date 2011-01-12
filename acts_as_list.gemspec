@@ -15,11 +15,15 @@ Gem::Specification.new do |s|
     "README"
   ]
   s.files = [
+    "Gemfile",
+    "Gemfile.lock",
     "README",
     "Rakefile",
     "VERSION",
+    "acts_as_list.gemspec",
     "init.rb",
     "lib/active_record/acts/list.rb",
+    "lib/acts_as_list.rb",
     "test/list_test.rb"
   ]
   s.homepage = %q{http://github.com/sauberia/acts_as_list}
