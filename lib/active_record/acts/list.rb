@@ -88,7 +88,7 @@ module ActiveRecord
         def move_lower
           return unless lower_item
 
-          acts_as_list_class.transaction do
+          acts_as_list_class.serialized_transaction do
             lower_item.decrement_position
             increment_position
           end
@@ -98,7 +98,7 @@ module ActiveRecord
         def move_higher
           return unless higher_item
 
-          acts_as_list_class.transaction do
+          acts_as_list_class.serialized_transaction do
             higher_item.increment_position
             decrement_position
           end
@@ -108,7 +108,7 @@ module ActiveRecord
         # position adjusted accordingly.
         def move_to_bottom
           return unless in_list?
-          acts_as_list_class.transaction do
+          acts_as_list_class.serialized_transaction do
             decrement_positions_on_lower_items
             assume_bottom_position
           end
@@ -118,7 +118,7 @@ module ActiveRecord
         # position adjusted accordingly.
         def move_to_top
           return unless in_list?
-          acts_as_list_class.transaction do
+          acts_as_list_class.serialized_transaction do
             increment_positions_on_higher_items
             assume_top_position
           end
